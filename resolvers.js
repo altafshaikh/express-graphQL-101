@@ -1,4 +1,4 @@
-import { nanoid } from "nanoid";
+const { nanoid } = require("nanoid");
 
 class Course {
   constructor(
@@ -16,15 +16,22 @@ class Course {
   }
 }
 
-const courseHolder = {};
+let courseHolder = {};
 
 const resolvers = {
   getCourse: ({ id }) => {
+    console.log(courseHolder);
+
     return new Course(id, courseHolder[id]);
   },
   createCourse: ({ input }) => {
+    console.log(courseHolder);
+
     let id = nanoid();
-    courseHolder[i];
-    return new Course(id, input);
+    const course = new Course(id, input);
+    courseHolder[id] = course;
+    return course;
   },
 };
+
+module.exports = resolvers;

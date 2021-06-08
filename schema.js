@@ -1,4 +1,4 @@
-import { buildSchema } from "graphql";
+const { buildSchema } = require("graphql");
 
 const Schema = buildSchema(`
     type Course {
@@ -46,8 +46,8 @@ const Schema = buildSchema(`
     }
 
     type Mutation {
-        createCourse(input CourseInput): Course
+        createCourse(input:CourseInput): Course
     }
 `);
 
-export default Schema;
+module.exports = Schema;

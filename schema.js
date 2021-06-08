@@ -1,6 +1,6 @@
 import { buildSchema } from "graphql";
 
-const schema = buildSchema(`
+const Schema = buildSchema(`
     type Course {
         id: ID
         courseName: String
@@ -49,3 +49,5 @@ const schema = buildSchema(`
         createCourse(input CourseInput): Course
     }
 `);
+
+export default Schema;
